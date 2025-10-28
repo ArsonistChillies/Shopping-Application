@@ -113,7 +113,7 @@ main {
 .btn-outline {
   --bs-btn-color: var(--accent);
   --bs-btn-border-color: var(--accent);
-  --bs-btn-hover-color: #001218;
+  --bs-btn-hover-color: #011800;
   --bs-btn-hover-bg: var(--accent);
   --bs-btn-hover-border-color: var(--accent);
 }
