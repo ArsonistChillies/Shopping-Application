@@ -92,6 +92,39 @@ main {
   color: var(--accent);
 }
 
+.btn {
+  --bs-btn-color: #001218;
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-2);
+  --bs-btn-hover-border-color: var(--accent-2);
+  --bs-btn-active-bg: var(--accent-2);
+  --bs-btn-active-border-color: var(--accent-2);
+}
+.light-mode .btn {
+  --bs-btn-color: #ffffff;
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-2);
+  --bs-btn-hover-border-color: var(--accent-2);
+  --bs-btn-active-bg: var(--accent-2);
+  --bs-btn-active-border-color: var(--accent-2);
+}
+.btn-outline {
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-color: #001218;
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-border-color: var(--accent);
+}
+.light-mode .btn-outline {
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-border-color: var(--accent);
+} 
+
 .object-fit-cover {
   object-fit: cover;
 }
