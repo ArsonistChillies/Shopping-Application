@@ -38,6 +38,7 @@
             <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link" href="./index.html#hero">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="./store.html">Store</a></li>
+              <li class="nav-item"><a class="nav-link" href="./order.html">Order</a></li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="./cart.html">
                   Cart <span id="cart-item-count" class="badge rounded-pill bg-danger">0</span>
@@ -99,92 +100,6 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Update cart item count on load
-      const cartItemCountElement = document.getElementById('cart-item-count');
-      if (cartItemCountElement) {
-        const itemCount = localStorage.getItem('cartItemCount');
-        if (itemCount && parseInt(itemCount) > 0) {
-          cartItemCountElement.textContent = itemCount;
-          cartItemCountElement.style.display = 'inline-block';
-        } else {
-          cartItemCountElement.style.display = 'none';
-        }
-      }
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const cartDetailsElement = document.getElementById('cartDetails');
-        const proceedToPaymentButton = document.getElementById('proceedToPayment');
-
-        const order = JSON.parse(localStorage.getItem('neonSliceOrder'));
-
-        if (order) {
-          cartDetailsElement.innerHTML = `
-          <p><strong>Name:</strong> ${order.name}</p>
-          <p><strong>Email:</strong> ${order.email}</p>
-          <p><strong>Phone:</strong> ${order.phone}</p>
-          <p><strong>Method:</strong> ${order.method}</p>
-          ${
-            order.address
-              ? `<p><strong>Address:</strong> ${order.address}, ${order.city}, ${order.state} ${order.zip}</p>`
-              : ''
-          }
-          <h3 class="neon-text mt-4">Items Ordered:</h3>
-          <ul class="list-unstyled">
-            <li><strong>Size:</strong> ${order.size}</li>
-            <li><strong>Base:</strong> ${order.base}</li>
-            <li><strong>Toppings:</strong> ${
-              order.toppings && order.toppings.length > 0 ? order.toppings.join(', ') : 'None'
-            }</li>
-            ${order.notes ? `<li><strong>Notes:</strong> ${order.notes}</li>` : ''}
-          </ul>
-          <h3 class="neon-text mt-4">Order Summary:</h3>
-          <ul class="list-unstyled">
-            <li><strong>Subtotal:</strong> $${order.subtotal}</li>
-            <li><strong>Tax:</strong> $${order.tax}</li>
-            <li><strong>Delivery Fee:</strong> $${order.deliveryFee}</li>
-            <li><strong>Total:</strong> $${order.total}</li>
-          </ul>
-        `;
-          proceedToPaymentButton.disabled = false;
-        } else {
-          cartDetailsElement.innerHTML = `
-          <p class="text-secondary-emphasis">Your cart is empty. Please place an order first.</p>
-        `;
-          proceedToPaymentButton.disabled = true;
-        }
-
-        proceedToPaymentButton.addEventListener('click', () => {
-          window.location.href = './payments.html';
-        });
-      });
-
-      // Dark/Light Mode Toggle
-      const darkModeToggle = document.getElementById('darkModeToggle');
-      const enableLightMode = localStorage.getItem('lightMode') === 'true';
-
-      const updateTheme = (isLightMode) => {
-        if (isLightMode) {
-          document.body.classList.add('light-mode');
-          darkModeToggle.textContent = 'Dark Mode';
-          localStorage.setItem('lightMode', 'true');
-        } else {
-          document.body.classList.remove('light-mode');
-          darkModeToggle.textContent = 'Light Mode';
-          localStorage.setItem('lightMode', 'false');
-        }
-      };
-
-      // Initial theme setup
-      updateTheme(enableLightMode);
-
-      darkModeToggle.addEventListener('click', () => {
-        const isLightMode = document.body.classList.contains('light-mode');
-        updateTheme(!isLightMode);
-      });
-    </script>
+    <script src="CSS/Java.js"></script>
   </body>
 </html>
